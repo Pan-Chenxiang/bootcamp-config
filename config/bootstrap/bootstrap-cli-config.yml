@@ -21,6 +21,7 @@ bootstrap:
     # to support a smooth v1 migration.
     #
     # Recommended values for a new v2-project are given as comments!
+    
 
     # default is: allprojects
     #   recommended is shorter: 'all'
