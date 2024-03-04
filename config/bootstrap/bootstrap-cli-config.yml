@@ -102,8 +102,8 @@ bootstrap:
                 description: Use case 001 Overall Equipment Effectiveness (OEE) # HINT
                 shared-access:
                     read:
-                    - node-name: src:001:sap
-                    - node-name: src:002:opcua
+                        - node-name: src:001:sap
+                        - node-name: src:002:opcua
 
 
 # de-facto standards for CDF CogniteClient and logger configuration.
