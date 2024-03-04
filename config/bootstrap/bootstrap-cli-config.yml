@@ -80,11 +80,10 @@ bootstrap:
                 idp-source-id: d9bba19a-8783-4a03-95d2-835186d7af49 # for the AAD Group to be matched to cdf-group
                 idp-source-name: bootcamp-09-prod-all-read # i.e. bootcamp-01-test-all-read
 
-
     namespaces:
         # Typical config will have a namespace for data sources ("src") and a namespace for use cases ("uc")
         - ns-name: src
-          description: Data sources for the Ice Cream Factory # HINT
+          description: Sources used for data extraction # HINT
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
@@ -95,24 +94,16 @@ bootstrap:
         # HINT: Add another namespace below
 
         - ns-name: uc
-          description: Use case for the Ice Cream Factory # HINT
+          description: Use cases representing the data/products # HINT
 
           # Node names will normally follow src:001:srcname or uc:001:usecasename naming convention
           ns-nodes:
-              - node-name: us:001:oee
+              - node-name: uc:001:oee
                 description: Use case 001 Overall Equipment Effectiveness (OEE) # HINT
-
-          # shared-access is a powerful concept that **only** affects CDF groups of type ':owner'.
-          # Typically required for use case groups, which have to read from multiple sources (nodes)
-          # to apply the models and create the higher-value data products in the use case dataset.
-          #
-          # It allows you to grant additional 'read' or 'owner' access to other ns-nodes, across the 'namespaces'.
-          # This allows you to maintain complex access-control needs, and at the same time allowing for a stable IdP mapping.
-          # Adding node-names is explicit and never includes their shared-access nodes
-          shared-access:
-              read:
-                  - node-name: src:001:sap
-                  - node-name: src:002:opcua
+                shared-access:
+                    read:
+                        - node-name: src:001:sap
+                        - node-name: src:002:opcua
 
 # de-facto standards for CDF CogniteClient and logger configuration.
 # Following the same parameter structure as the 'Cognite Python Extractor-Utilities'
